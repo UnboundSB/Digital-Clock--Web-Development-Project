@@ -1,89 +1,110 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: cursive;
-}
-
-body{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #060a1f;
-}
-
-#clock h2{
-    color: #fff;
-    text-align:center;
-    font-size: 0.4cm;
-    letter-spacing: 0.2cm;
-    display: block;
-    margin: 10px 0;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-#clock #time{
-    display: flex;
-    justify-content: center;
-}
-
-#clock #time div{
-    position: relative;
-    margin: 0 5px;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
-}
-
-#clock #time div span{
-    position: relative;
-    background: #2196f3;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    height: 90px;
-    box-shadow:0 0 0 1px rgba(0,0,0,0.2);
-    z-index: 10;
-    color: #fff;
-    font-weight: 200;
-    font-size:1.5cm;
-}
-
-#clock #time div span:last-child{
-    height:30px;
-    font-size: 0.5cm;
-    font-weight: 500;
-    text-transform: uppercase;
-    background: #127fd6;
-}
-
-#clock #time div:nth-child(2) span{
-    background: #ff006a;
-}
-
-#clock #time div:nth-child(2) span:last-child{
-    background: #ec0062;
-}
-
-#clock #time div:nth-child(3) span{
-    background: #ff6104;
-}
-
-#clock #time div:nth-child(3) span:last-child{
-    background: #db5200;
-}
-
-#am_pm{
-    width: 100px;
-    height: 80px;
-    background: #060a1f;
-    color: #fff;
-    font-size: 1cm;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px auto;
-    border-bottom: 5px solid #ff006a;
-    border-radius: 0 0 100px 100px;
-}
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+        }
+        
+        #clock {
+            position: relative;
+            width: 500px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10;
+            color: #fff;
+            text-align: center;
+        }
+        
+        #clock h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        #time {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        #time div {
+            position: relative;
+            width: 120px;
+            text-align: center;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        #time div span {
+            position: relative;
+            display: block;
+        }
+        
+        #time div span:first-child {
+            font-size: 3em;
+            font-weight: 700;
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        #time div span:last-child {
+            font-size: 0.8em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #am_pm {
+            position: relative;
+            top: 20px;
+            font-size: 1.5em;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: 15px;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Add animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        #time div span:first-child {
+            animation: pulse 2s infinite;
+            animation-delay: calc(0.5s * var(--i));
+        }
+        
+        #time div:nth-child(1) span:first-child { --i: 1; }
+        #time div:nth-child(2) span:first-child { --i: 2; }
+        #time div:nth-child(3) span:first-child { --i: 3; }
